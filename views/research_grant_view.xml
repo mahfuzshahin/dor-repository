@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="research_grant_search_view" model="ir.ui.view">
+            <field name="name">research.grant.search.view</field>
+            <field name="model">research.grant</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="paper_title"/>
+                    <field name="first_author"/>
+                    <field name="author_ids"/>
+                </search>
+            </field>
+        </record>
+        <!-- Tree View -->
+        <record id="research_grant_tree_view" model="ir.ui.view">
+            <field name="name">research.grant.tree.view</field>
+            <field name="model">research.grant</field>
+            <field name="arch" type="xml">
+                <tree string="Research Grant">
+                    <field name="paper_title"/>
+                    <field name="first_author"/>
+                    <field name="author_ids"/>
+                </tree>
+            </field>
+        </record>
+        <!-- Form View -->
+        <record id="research_grant_form_view" model="ir.ui.view">
+            <field name="name">research.grant.form.view</field>
+            <field name="model">research.grant</field>
+            <field name="arch" type="xml">
+                <form string="Research Grant">
+                    <group>
+                        <group>
+                            <field name="paper_title"/>
+                            <field name="author_ids" widget="many2many_tags"/>
+                            <field name="cj_name"/>
+                            <field name="contribution"/>
+                            <field name="reg_fees"/>
+                            <field name="acceptance_document"/>
+                            <field name="full_paper"/>
+                        </group>
+                         <group>
+                            <field name="first_author"/>
+                             <field name="country"/>
+                             <field name="cj_link"/>
+                             <field name="impact"/>
+                             <field name="indexed"/>
+                             <field name="payment_invoice"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <!-- Act Window & Menu Configuration -->
+        <record id="action_research_grant_view" model="ir.actions.act_window">
+            <field name="name">Research Grant</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">research.grant</field>
+            <field name="domain">[]</field>
+            <!-- <field name="view_type">form</field> -->
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="research_grant_tree_view"/>
+        </record>
+    </data>
+
+</odoo>
+
